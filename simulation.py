@@ -30,7 +30,7 @@ class Simulation:
         for y in range(0, self.height, grid_spacing):
             pygame.draw.line(self.screen, self.grid_color, (0, y), (self.width, y))
 
-    def spawn_particle(self, x, y, mass=1e+4):
+    def spawn_particle(self, x, y, mass=1e+3):
         # For simplicity, all particles have the same speed and mass
         self.particles.append(Particle(x, y, speed=0, mass=mass, vx = 0.5))
 
