@@ -2,6 +2,7 @@ import pygame
 import math
 from  particle import Particle
 from button import Button
+import random
 class Simulation:
     def __init__(self, width, height, num_particles):
         pygame.init()
@@ -12,7 +13,7 @@ class Simulation:
         self.background_color = (0, 0, 0)
         self.particle_color = (255, 255, 255)
         # Assuming a default mass for simplicity. Update this line to include mass.
-        self.particles = [Particle(400, 300, 2, 1e+8) for i in range(num_particles)]  # Added mass=1
+        self.particles = [Particle(400+random.randrange(10,100), 300, 2, 1e+8) for i in range(num_particles)]  # Added mass=1
         self.speed_factor = 1  # Default speed factor
         self.buttons = [
             Button(650, 10, 100, 30, 'Speed x5'),
@@ -29,7 +30,7 @@ class Simulation:
         for y in range(0, self.height, grid_spacing):
             pygame.draw.line(self.screen, self.grid_color, (0, y), (self.width, y))
 
-    def spawn_particle(self, x, y, mass=1e+3):
+    def spawn_particle(self, x, y, mass=1e+4):
         # For simplicity, all particles have the same speed and mass
         self.particles.append(Particle(x, y, speed=0, mass=mass, vx = 0.5))
 
