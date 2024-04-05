@@ -4,9 +4,10 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-pygame = "*"
-numba = "*"
+llvmlite = "==0.42.0"
+numba = "==0.59.0"
 numpy = "*"
+pygame = "==2.5.2"
 
 [dev-packages]
 
